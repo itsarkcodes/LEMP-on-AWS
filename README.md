@@ -160,3 +160,7 @@ sudo certbot --nginx
 - Enter Email Address
 - It will ask for domain name, just hit enter
 - and boom! it will be deployed to both domain names i.e domain.com and www.domain.com
+
+
+# Conclusion
+Congratulations! You have successfully set up deployment process for a WordPress website using Nginx as the web server, LEMP stack, and Let's Encrypt SSL. Your website is now deployed with security best practices and optimized for performance.
