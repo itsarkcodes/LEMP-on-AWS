@@ -5,6 +5,7 @@ This technical documentation provides a step-by-step guide on setting up a deplo
 
 ## Youtube Video
 ## **Here is the complete review of this assignment in a Youtube Video:** https://youtu.be/PcG7tPwmaQ4
+## Hosted Website: arkcodes.tech
 
 ## Prerequisites
 Before proceeding with the automated deployment process, ensure the following prerequisites are met:
