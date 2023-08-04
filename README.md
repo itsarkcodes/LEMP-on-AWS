@@ -5,7 +5,7 @@ This technical documentation provides a step-by-step guide on setting up a deplo
 
 ## Youtube Video
 ## **Here is the complete review of this assignment in a Youtube Video:** https://youtu.be/PcG7tPwmaQ4
-## Hosted Website: arkcodes.tech
+## Hosted Website: https://arkcodes.tech
 
 ## Prerequisites
 Before proceeding with the automated deployment process, ensure the following prerequisites are met:
@@ -96,6 +96,7 @@ Now open wordpress.conf and paste the below configuration
 server {
             listen 80;
             server_name domain.com  www.domain.com
+            client_max_body_size 30M
             root /var/www/html/;
             index index.php 
 	         
@@ -151,4 +152,11 @@ Now provide the site information like site title, username, password, email and 
 Provide the user name and password that we have entered previously to login for the first time.
 ![image](https://github.com/itsarkcodes/devops-assignment/assets/87442305/e51184c2-31b5-4cb4-af10-9416c3591bd4)
 
-Congratulations! Your WordPress website is installed and ready for you to customize according to your requirements.
+## Step 8: Install SSL using LetsEncrypt
+Just follow the commands
+```
+sudo certbot --nginx
+```
+- Enter Email Address
+- It will ask for domain name, just hit enter
+- and boom! it will be deployed to both domain names i.e domain.com and www.domain.com
