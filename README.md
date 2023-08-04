@@ -83,3 +83,71 @@ cd /var/www/html
 sudo rm -rf index.html index.nginx-debian.html
 ```
 ## Step 5: Configure NGINX to host WordPress
+Let us now proceed with configuring NGINX server blocks to serve your WordPress domain. To start with navigate to the ```/etc/nginx/sites-enabled```
+Here you will find a default file. We will copy the file and name it as wordpress and remove the default site
+```
+sudo cp default wordpress.conf
+sudo rm -rf default
+sudo rm -rf /etc/nginx/sites-available/default
+```
+Now open wordpress.conf and paste the below configuration
+```nginx
+server {
+            listen 80;
+            server_name domain.com  www.domain.com
+            root /var/www/html/;
+            index index.php 
+	         
+            location / {
+                         try_files $uri $uri/ /index.php?$args;
+            }
+
+            location ~ \.php$ {
+                         fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+            }
+            
+            location ~ /\.ht {
+                         deny all;
+            }
+}
+```
+Now press ctrl + x and hit Enter to save
+Restart nginx
+```
+sudo systemctl restart nginx
+```
+**Now open domain name and you will get  wordpress creating page**
+![image](https://github.com/itsarkcodes/devops-assignment/assets/87442305/30850e23-b4ea-4fb8-85a2-c8662b00910c)
+
+## Step 6: Create WordPress Database
+We will now create a user and a database especially for WordPress installation. To do that, log in to the MariaDB server using ```sudo mysql -u root -p``` command and complete the steps as described below.
+
+```
+$ mysql -u root -p
+Enter password: (enter any password for database)
+
+MariaDB [mysql]> CREATE DATABASE wordpress;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [mysql]> GRANT ALL ON wordpress_db.* TO 'wpuser'@'localhost' IDENTIFIED BY 'Passw0rd!' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mysql]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mysql]> exit
+```
+
+## Step 7: Install WordPress
+To complete the installation of WordPress, point your favorite web browser to domain.com and follow the steps as described below.  
+
+![image](https://github.com/itsarkcodes/devops-assignment/assets/87442305/23a18e5d-8f99-40c6-80dc-0d65aa3affaf)
+
+Now provide the site information like site title, username, password, email and click on ‘Install WordPress’ button.
+
+![image](https://github.com/itsarkcodes/devops-assignment/assets/87442305/87b06c26-8aa3-48ab-9eed-df7bb4130842)
+
+Provide the user name and password that we have entered previously to login for the first time.
+![image](https://github.com/itsarkcodes/devops-assignment/assets/87442305/e51184c2-31b5-4cb4-af10-9416c3591bd4)
+
+Congratulations! Your WordPress website is installed and ready for you to customize according to your requirements.
