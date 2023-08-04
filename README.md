@@ -1,7 +1,7 @@
 # Technical Documentation: Deployment of WordPress with LEMP Stack and Let's Encrypt SSL
 ## Youtube Video
-**Here is the complete review of this assignment in a Youtube Video:** https://youtu.be/PcG7tPwmaQ4	
-Hosted Website: https://arkcodes.tech
+**Here is the complete review of this assignment in a Youtube Video:** https://youtu.be/PcG7tPwmaQ4
+**Hosted Website:** https://arkcodes.tech
 
 ## Introduction
 This technical documentation provides a step-by-step guide on setting up a deployment process for a WordPress website using Nginx as the web server, LEMP (Linux, Nginx, MySQL, PHP) stack, and Let's Encrypt SSL for secure communication. The deployment process follows security best practices and aims to ensure optimal performance of the website.
