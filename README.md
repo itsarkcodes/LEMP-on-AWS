@@ -41,3 +41,45 @@ sudo systemctl start nginx
 Check status with ```sudo systemctl status nginx```
 ![image](https://github.com/itsarkcodes/devops-assignment/assets/87442305/6477c62c-bc40-4dfc-9269-211b8d3a7ff9)
 
+## Step 2: Install MYSQL
+1. Install using the following command:
+```nginx
+apt install mariadb-server -y
+```
+2. Now we will start mariadb
+```
+sudo systemctl start mariadb
+```
+3. Now configure the DB
+```
+sudo mysql_secure_installation
+```
+4. Now it will ask for current password, Just hit enter as we dont have any
+5. Now it will ask you for setting a root password, Enter 'Y' and proceed by entering the password
+6. Select Yes for all the options asked
+The installation of MariaDB is complete in your Ubuntu 22.04 system. Now proceed with installing PHP in the next step.
+
+## Step 3: Install PHP
+The latest version of PHP (8.1) is available in the repositories of Ubuntu 22.04 and is the default candidate for installation so simply run the following command in terminal to install it.
+```
+sudo apt install php
+```
+We will also install some extensions for php
+```
+sudo apt install php-mysql php-gd php-common php-mbstring php-curl php-cli php-fpm -y
+```
+The above apt-get command also installs few other packages as well like MySQL, XML, Curl and GD packages and makes sure that your WordPress site can interact with the database, support for XMLRPC, and also to crop and resize images automatically. Further, the php-fpm (Fast process manager) package is needed by NGINX to process PHP pages of your WordPress installation. Remember that FPM service will run automatically once the installation of PHP is over.
+
+## Step 4: Download Wordpress
+In this step, download the archived WordPress file using wget and unzip it. To accomplish it run the following commands from the terminal.
+```
+wget https://wordpress.org/latest.zip
+unzip latest.zip
+sudo mv wordpress/* /var/www/html
+```
+Now change directory to /var/www/html and delete 2 files
+```
+cd /var/www/html
+sudo rm -rf index.html index.nginx-debian.html
+```
+## Step 5: Configure NGINX to host WordPress
