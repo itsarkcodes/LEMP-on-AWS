@@ -1,6 +1,6 @@
 # Technical Documentation: Deployment of WordPress with LEMP Stack and Let's Encrypt SSL
 ## Youtube Video
-**Here is the complete review of this assignment in a Youtube Video:** https://youtu.be/PcG7tPwmaQ4
+**Here is the complete review of this assignment in a Youtube Video:** https://youtu.be/PcG7tPwmaQ4	<br>
 **Hosted Website:** https://arkcodes.tech
 
 ## Introduction
